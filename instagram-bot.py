@@ -14,9 +14,9 @@ class InstaBot:
     def signIn(self):
         self.browser.get('https://www.instagram.com/accounts/login/')
 
-        usernameInput =  WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div[1]/div/form/div/div[1]/div/label/input"))) 
+        usernameInput =  WebDriverWait(self.browser, 1).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div[1]/div/form/div/div[1]/div/label/input"))) 
 
-        passwordInput = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div[1]/div/form/div/div[2]/div/label/input")))
+        passwordInput = WebDriverWait(self.browser, 1).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div[1]/div/form/div/div[2]/div/label/input")))
 
         usernameInput.send_keys(self.username)
         passwordInput.send_keys(self.password)
@@ -27,13 +27,13 @@ class InstaBot:
     def saveInfo(self):
         self.browser.get('https://www.instagram.com/accounts/onetap/?next=%2F')
 
-        save_info_button = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div/section/div/button")))
+        save_info_button = WebDriverWait(self.browser, 1).until(EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/section/main/div/div/div/section/div/button")))
 
         save_info_button.click()
     
     def notifications(self):
         self.browser.get('https://www.instagram.com/')
-        turn_on_notifications = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[4]/div/div/div/div[3]/button[1]")))
+        turn_on_notifications = WebDriverWait(self.browser, 1).until(EC.presence_of_element_located((By.XPATH,"/html/body/div[4]/div/div/div/div[3]/button[1]")))
 
         turn_on_notifications.click()
 
