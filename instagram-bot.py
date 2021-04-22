@@ -37,7 +37,9 @@ class InstaBot:
 
         turn_on_notifications.click()
 
-bot = InstaBot('', '')
+username_input = input("instagram username: ")
+password_input = input("instagram username: ")
+bot = InstaBot(username_input, password_input)
 bot.signIn()
 bot.saveInfo()
 bot.notifications()
