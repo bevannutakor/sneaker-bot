@@ -5,6 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.webdriver.common.keys import Keys
 
+#edits to the bot:
+#make it functional such that it unfollows users who don't follow you back, and are not verified.
+#Specific inputs for specific accounts to be unfollowed as well
+
 class InstaBot:
     def __init__(self, username, password):
         self.browser = webdriver.Chrome('/Users/user/Desktop/chromedriver')
@@ -38,7 +42,7 @@ class InstaBot:
         turn_on_notifications.click()
 
 username_input = input("instagram username: ")
-password_input = input("instagram username: ")
+password_input = input("instagram password: ")
 bot = InstaBot(username_input, password_input)
 bot.signIn()
 bot.saveInfo()
