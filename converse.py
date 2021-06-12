@@ -10,31 +10,52 @@ from selenium.webdriver.common.keys import Keys
 
 #from selenium.webdriver.chrome.options import Options
 
-from requests_html import HTMLSession, AsyncHTMLSession
+#from requests_html import HTMLSession, AsyncHTMLSession
+import requests
 
 import time
 import os
 
 base_url = 'https://www.converse.ca/'
-browser = webdriver.Chrome('/Users/user/Desktop/chromedriver')
 
-headers = {
+driver = webdriver.Chrome('/Users/user/Desktop/chromedriver')
+
+proxies = []
+
+'''headers = {
     "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Mobile Safari/537.36"
-}
+}'''
 
-def search_specific_item():
-    wanted_item = input("type in the item wanted")
-    product_url = base_url + wanted_item
-    
+def generate_item_url():
+    wanted_item_keywords = input("Tell us the item you want to purchase(Include spaces for each word and Be detailed): ")
+    model_name = wanted_item_keywords.replace(" ", "-")
+    full_url = base_url  + model_name + '.html'
 
-def check_item_availability():
-    pass
-
+    return full_url
 
 def add_item_to_cart():
-    pass
+    item_url = generate_item_url()
+    driver.get(item_url)
+
+    #select size and quantity code block
+    size_input = input("indicate the size the size shoe: ")
+    select_size_button = WebDriverWait(driver, 1).until(EC.presence_of_element_located((By.XPATH, "//*[@id='attribute136']")))
+
+    select_size_button.click()
+
+    quantity = input("indicate the amount of the item: ")
+
+
+    checkout_url = driver.current_url
+
+    driver.quit()
+
+    return checkout_url
+    
 
 def complete_purchase():
+    url = add_item_to_cart()
+    
     pass
 
-print(search_for_all_items())
+print(add_item_to_cart())
