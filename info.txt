@@ -1,16 +1,13 @@
 converse.py 
 generate url function - use user input to generate product urls, return the url to use in the next function
 
-function for adding to cart:
-    - may have to use selenium since when variant is chosen no requests are made
-    - size should be specified before hand
-    - if size is not available stop the program but if it is use selenium to click on it
-    - choose quantity if available
-    - transfer cookies from selenuium to requests and close browser
-    - get request proceed to checkout
+BUGS AT THE MOMENT:
+    quantity dropdown gives error that it is not interactable
 
+TODOS:
+    create fields to put in payment information
 
+link: chuck taylor all star high top carryover
 
+size: M 17 / W 19
 
-checkout function
-    - make a post request to the form for all billing information
