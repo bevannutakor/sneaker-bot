@@ -1,5 +1,3 @@
-#import bs4
-#import requests
 import time
 import re
 from selenium import webdriver
